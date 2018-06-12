@@ -89,7 +89,7 @@
                         </button>
                     </view>
                     <view class="flex-grow-1" wx:if="{{order.is_pay==0&&order.pay_type!=2}}">
-                        <button bindtap="orderPay" class="order-option-btn" data-id="{{order.order_id}}" data-index="{{index}}">付款</button>
+                        <button bindtap="orderPay_1" class="order-option-btn" data-id="{{order.order_id}}" data-index="{{index}}">付款</button>
                     </view>
                     <view class="flex-grow-1" wx:if="{{order.is_pay==1&&order.is_offline==1&&order.is_send==0&&order.apply_delete==0}}">
                         <view bindtap="orderQrcode" class="order-option-btn clerk flex-y-center" data-index="{{index}}">

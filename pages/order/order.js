@@ -1,4 +1,8 @@
-var api = require("../../api.js"), app = getApp(), is_no_more = !1, is_loading = !1, p = 2;
+var api = require("../../api.js"),
+    app = getApp(),
+    is_no_more = !1,
+    is_loading = !1,
+    p = 2;
 
 Page({
     data: {
@@ -65,7 +69,8 @@ Page({
         }));
     },
     orderPay_1: function(e) {
-        var a = this, t = a.data.pay_type_list;
+        var a = this,
+            t = a.data.pay_type_list;
         1 == t.length ? (wx.showLoading({
             title: "正在提交",
             mask: !0
@@ -93,17 +98,18 @@ Page({
                 wx.hideLoading();
             },
             success: function(t) {
-                console.log(t), 0 == t.code && wx.requestPayment({
+             0 == t.code && wx.requestPayment({
                     timeStamp: t.data.timeStamp,
                     nonceStr: t.data.nonceStr,
                     package: t.data.package,
                     signType: t.data.signType,
                     paySign: t.data.paySign,
                     success: function(t) {
-                        console.log("success"), console.log(t);
+                        console.log('success')
+                        
                     },
                     fail: function(t) {
-                        console.log("fail"), console.log(t);
+                        console.log("fail")
                     },
                     complete: function(t) {
                         console.log("complete"), console.log(t), "requestPayment:fail" != t.errMsg && "requestPayment:fail cancel" != t.errMsg ? wx.redirectTo({
@@ -204,7 +210,9 @@ Page({
         });
     },
     orderQrcode: function(t) {
-        var e = this, a = e.data.order_list, o = t.target.dataset.index;
+        var e = this,
+            a = e.data.order_list,
+            o = t.target.dataset.index;
         wx.showLoading({
             title: "正在加载",
             mask: !0
